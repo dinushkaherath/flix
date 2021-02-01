@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
         if @movie.update(movie_params)
             redirect_to @movie, notice: "Movie successfully updated!"
         else
-            remder :new
+            render :new
         end
     end
 
