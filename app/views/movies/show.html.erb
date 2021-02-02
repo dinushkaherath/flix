@@ -25,8 +25,11 @@
       </tr>
     </table>
     <div class="reviews">
-      <%= link_to pluralize(@movie.reviews.size, "review"),
-            movie_reviews_path(@movie) %>
+      <%= render "shared/stars", percent: @movie.average_stars_as_percent %>
+      <% if @movie.reviews.size > 0 %>
+        <%= link_to pluralize(@movie.reviews.size, "review"),
+              movie_reviews_path(@movie) %>
+      <% end %>
     </div>
     <%= link_to "Write Review", new_movie_review_path(@movie),
               class: "review" %>
