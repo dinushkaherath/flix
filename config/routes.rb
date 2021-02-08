@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :movies do
     resources :reviews
     resources :favorites, only: [:create, :destroy]
-    resources :genres
   end
+
+  get "movies/filter/:filter" => "movies#index", as: :filtered_movies
+
+  resources :genres
   
   resource :session, only: [:new, :create, :destroy]
   
