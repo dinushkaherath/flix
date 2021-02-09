@@ -56,7 +56,7 @@ end
 def movie_params
     params.require(:movie).
         permit(:title, :description, :rating, :released_on, :total_gross,
-                :duration, :image_file_name, :director, genre_ids: [])
+                :duration, :main_image, :director, genre_ids: [])
 end
 
 def movies_filter
